@@ -1,17 +1,15 @@
 import React from "react";
-import * as ReactDOMClient from 'react-dom/client';
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
 const rootElement = document.getElementById("root");
-const root = ReactDOMClient.createRoot(rootElement);
+const root = createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-class Clock extends React.Component{
-  render(){
-    return(
-      <h1 className="heading">
-        <p>{this.props.children}</p>
-        <span className="text">{new Date().toLocaleTimeString(this.props.local)}</span>
-      </h1>
-    )
-  }
-}
-
-root.render(<Clock local="bn-BD">Nishi</Clock>);
+reportWebVitals();
