@@ -31,7 +31,7 @@ class Clock extends React.Component{
 
   render(){
     const {date,local} = this.state
-    console.log("clockrender")
+    console.log(local);
 
     return(
       <div>
@@ -39,7 +39,9 @@ class Clock extends React.Component{
             <p>{this.props.children}</p>
             <span className="text">{date.toLocaleTimeString(local)}</span>
           </h1>
-          <Button change={this.hendelOnClick} local="em-US"/>
+          {
+            local === "bn-BD"?(<Button change={this.hendelOnClick} local="em-US"/>):(<Button change={this.hendelOnClick} local="bn-BD"/>)
+          }
       </div>
     )
   }
